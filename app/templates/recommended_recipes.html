@@ -1,0 +1,14 @@
+<!--!doctype html-->
+<body>
+{% for recipe in related %}
+  <p>
+    <a href="{{ recipe['url'] }}"> {{ recipe['title'] }} </a>
+    <h4>matched</h4>
+    {% for match in recipe['matched_ingredients'] %}
+      <li style="margin-left: 10px;">
+        {{ match }}
+      </li>
+    {% endfor %}
+  </p>
+{% endfor %}
+</body>

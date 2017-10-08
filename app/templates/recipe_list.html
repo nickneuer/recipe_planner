@@ -1,0 +1,14 @@
+<!--!doctype html-->
+<title>Recipes</title>
+<body>
+{% for recipe in recipes %}
+  <li>
+    <a href="{{ recipe['url'] }}">
+        {{recipe['title'][0]}}
+    </a> 
+    <a style="margin-left: 10px;" href="recipes/{{ recipe['rid'] }}"> 
+        find similar 
+    </a>
+  </li>
+{% endfor %}
+</body>
