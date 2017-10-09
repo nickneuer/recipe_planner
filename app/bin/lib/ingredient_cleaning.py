@@ -21,7 +21,8 @@ def strip_specific_words(s):
 	    'cup', 'tablespoon', 'teaspoon',
 	    'pound', 'large', 'small', 'beaten',
 	    'needed', 'chopped', 'ground', 'stirred',
-	    'plus', 'divided'
+	    'plus', 'divided', 'thinly', 'thin', 'thick',
+        'sliced', 'cubed'
 	]
 	for m in words:
 		regex = r'(\w*' + re.escape(m) + r'\w*)'

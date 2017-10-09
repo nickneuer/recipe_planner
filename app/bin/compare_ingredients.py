@@ -66,7 +66,9 @@ def score_matches(recipe1, recipe2, sameness_threshold=.2):
         if matches[k][1] > sameness_threshold:
             matched += 1
             matched_ingredients.append(
-                '{0} -- {1}'.format(k, matches[k][0])
+                '{0} -- {1} [{2}]'.format(
+                    k, matches[k][0], round(matches[k][1], 2)
+                )
             )
     match_score = float(matched) / (r1_length + r2_length - matched)
     matches['match_score'] = match_score
@@ -103,7 +105,8 @@ class RecipeDataset(dict):
             if get_id(r['url']) != rid:
                 match = score_matches(
                     start_recipe['ingredients'], 
-                    r['ingredients']
+                    r['ingredients'],
+                    self.sameness_threshold
                 )
                 match['url'] = r['url']
                 match['title'] = r['title'][0]
